@@ -10,7 +10,29 @@ Date: September 27, 2026
 
 def main():
     """Run the Grocery Store Checklist program."""
+    groceries = [
+        {
+            "name": "Milk",
+            "category": "Dairy",
+            "price": 3.49,
+            "purchased": False
+        },
+        {
+            "name": "Bread",
+            "category": "Bakery",
+            "price": 2.99,
+            "purchased": False
+        },
+        {
+            "name": "Apples",
+            "category": "Produce",
+            "price": 4.50,
+            "purchased": False
+        }
+    ]
+
     print("Welcome to the Grocery Store Checklist!")
+    print(f"There are currently {len(groceries)} items on your list.")
 
 
 if __name__ == "__main__":
