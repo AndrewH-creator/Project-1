@@ -79,6 +79,16 @@ def mark_purchased(groceries):
         print("Please enter a valid number.")
 
 
+def calculate_total(groceries):
+    """Calculate and display the estimated cost of all groceries."""
+    total = 0
+
+    for item in groceries:
+        total += item["price"]
+
+    print(f"Estimated grocery total: ${total:.2f}")
+
+
 def main():
     """Run the Grocery Store Checklist program."""
     groceries = [
@@ -119,7 +129,7 @@ def main():
         elif choice == "4":
             mark_purchased(groceries)
         elif choice == "5":
-            print("View total selected.")
+            calculate_total(groceries)
         elif choice == "6":
             running = False
             print("Thank you for using the Grocery Store Checklist!")
