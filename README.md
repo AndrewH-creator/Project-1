@@ -50,4 +50,4 @@ A tuple is used for the fixed grocery category choices.
 Run:
 
 ```text
-grocery_store.py
+python grocery_store.py
