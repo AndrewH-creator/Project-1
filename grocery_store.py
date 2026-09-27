@@ -18,9 +18,15 @@ def display_menu():
     print("5. View total cost")
     print("6. Quit")
 
-def add_grocery(groceries):
+def add_grocery(groceries, categories):
     """Ask the user for information and add a grocery item."""
     name = input("Enter the grocery item name: ")
+
+    print("\nAvailable categories:")
+
+    for category in categories:
+        print(f"- {category}")
+
     category = input("Enter the grocery category: ")
 
     while True:
@@ -124,9 +130,20 @@ def main():
             "purchased": False
         }
     ]
-
+         
+         
+categories = (
+    "Produce",
+    "Dairy",
+    "Bakery",
+    "Meat",
+    "Frozen",
+    "Pantry",
+    "Other"
+)
+ 
     print("Welcome to the Grocery Store Checklist!")
-
+         
     running = True
 
     while running:
