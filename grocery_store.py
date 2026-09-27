@@ -17,7 +17,23 @@ def display_menu():
     print("4. Mark item as purchased")
     print("5. View total cost")
     print("6. Quit")
-         
+
+def add_grocery(groceries):
+    """Ask the user for information and add a grocery item."""
+    name = input("Enter the grocery item name: ")
+    category = input("Enter the grocery category: ")
+    price = float(input("Enter the estimated price: "))
+
+    grocery = {
+        "name": name,
+        "category": category,
+        "price": price,
+        "purchased": False
+    }
+
+    groceries.append(grocery)
+    print(f"{name} was added to your grocery list.")
+
 
 def main():
     """Run the Grocery Store Checklist program."""
@@ -53,7 +69,7 @@ def main():
         if choice == "1":
             display_groceries(groceries)
         elif choice == "2":
-            print("Add item selected.")
+            add_grocery(groceries)
         elif choice == "3":
             print("Remove item selected.")
         elif choice == "4":
