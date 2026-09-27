@@ -22,7 +22,20 @@ def add_grocery(groceries):
     """Ask the user for information and add a grocery item."""
     name = input("Enter the grocery item name: ")
     category = input("Enter the grocery category: ")
-    price = float(input("Enter the estimated price: "))
+
+    while True:
+        price_input = input("Enter the estimated price: ")
+
+        try:
+            price = float(price_input)
+
+            if price >= 0:
+                break
+
+            print("Price cannot be negative.")
+
+        except ValueError:
+            print("Please enter a valid number.")
 
     grocery = {
         "name": name,
