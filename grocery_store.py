@@ -8,6 +8,26 @@ Date: September 27, 2026
 """
 
 
+def display_groceries(groceries):
+    """Display all grocery items and their information."""
+    print("\nGrocery List")
+    print("-" * 40)
+
+    if not groceries:
+        print("Your grocery list is empty.")
+        return
+
+    for number, item in enumerate(groceries, start=1):
+        status = "Purchased" if item["purchased"] else "Not Purchased"
+
+        print(
+            f"{number}. {item['name']} | "
+            f"{item['category']} | "
+            f"${item['price']:.2f} | "
+            f"{status}"
+        )
+
+
 def display_menu():
     """Display the available program choices."""
     print("\nMenu")
@@ -17,6 +37,7 @@ def display_menu():
     print("4. Mark item as purchased")
     print("5. View total cost")
     print("6. Quit")
+
 
 def add_grocery(groceries, categories):
     """Ask the user for information and add a grocery item."""
@@ -130,20 +151,19 @@ def main():
             "purchased": False
         }
     ]
-         
-         
-categories = (
-    "Produce",
-    "Dairy",
-    "Bakery",
-    "Meat",
-    "Frozen",
-    "Pantry",
-    "Other"
-)
- 
+
+    categories = (
+        "Produce",
+        "Dairy",
+        "Bakery",
+        "Meat",
+        "Frozen",
+        "Pantry",
+        "Other"
+    )
+
     print("Welcome to the Grocery Store Checklist!")
-         
+
     running = True
 
     while running:
@@ -153,7 +173,7 @@ categories = (
         if choice == "1":
             display_groceries(groceries)
         elif choice == "2":
-            add_grocery(groceries)
+            add_grocery(groceries, categories)
         elif choice == "3":
             remove_grocery(groceries)
         elif choice == "4":
@@ -165,3 +185,7 @@ categories = (
             print("Thank you for using the Grocery Store Checklist!")
         else:
             print("Invalid choice. Please enter a number from 1 to 6.")
+
+
+if __name__ == "__main__":
+    main()
