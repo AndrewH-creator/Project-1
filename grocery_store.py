@@ -57,6 +57,28 @@ def remove_grocery(groceries):
         print("Please enter a valid number.")
 
 
+def mark_purchased(groceries):
+    """Mark a selected grocery item as purchased."""
+    if not groceries:
+        print("There are no grocery items.")
+        return
+
+    display_groceries(groceries)
+
+    choice = input("Enter the number of the purchased item: ")
+
+    if choice.isdigit():
+        item_number = int(choice)
+
+        if 1 <= item_number <= len(groceries):
+            groceries[item_number - 1]["purchased"] = True
+            print("Item marked as purchased.")
+        else:
+            print("That item number does not exist.")
+    else:
+        print("Please enter a valid number.")
+
+
 def main():
     """Run the Grocery Store Checklist program."""
     groceries = [
@@ -95,7 +117,7 @@ def main():
         elif choice == "3":
             remove_grocery(groceries)
         elif choice == "4":
-            print("Mark purchased selected.")
+            mark_purchased(groceries)
         elif choice == "5":
             print("View total selected.")
         elif choice == "6":
