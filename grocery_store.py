@@ -8,21 +8,16 @@ Date: September 27, 2026
 """
 
 
-def display_groceries(groceries):
-    """Display all grocery items and their information."""
-    print("\nGrocery List")
-    print("-" * 40)
-
-    for number, item in enumerate(groceries, start=1):
-        status = "Purchased" if item["purchased"] else "Not Purchased"
-
-        print(
-            f"{number}. {item['name']} | "
-            f"{item['category']} | "
-            f"${item['price']:.2f} | "
-            f"{status}"
-        )
-
+def display_menu():
+    """Display the available program choices."""
+    print("\nMenu")
+    print("1. View grocery list")
+    print("2. Add grocery item")
+    print("3. Remove grocery item")
+    print("4. Mark item as purchased")
+    print("5. View total cost")
+    print("6. Quit")
+         
 
 def main():
     """Run the Grocery Store Checklist program."""
@@ -48,8 +43,25 @@ def main():
     ]
 
     print("Welcome to the Grocery Store Checklist!")
-    display_groceries(groceries)
 
+    running = True
 
-if __name__ == "__main__":
-    main()
+    while running:
+        display_menu()
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            display_groceries(groceries)
+        elif choice == "2":
+            print("Add item selected.")
+        elif choice == "3":
+            print("Remove item selected.")
+        elif choice == "4":
+            print("Mark purchased selected.")
+        elif choice == "5":
+            print("View total selected.")
+        elif choice == "6":
+            running = False
+            print("Thank you for using the Grocery Store Checklist!")
+        else:
+            print("Invalid choice. Please enter a number from 1 to 6.")
