@@ -8,6 +8,22 @@ Date: September 27, 2026
 """
 
 
+def display_groceries(groceries):
+    """Display all grocery items and their information."""
+    print("\nGrocery List")
+    print("-" * 40)
+
+    for number, item in enumerate(groceries, start=1):
+        status = "Purchased" if item["purchased"] else "Not Purchased"
+
+        print(
+            f"{number}. {item['name']} | "
+            f"{item['category']} | "
+            f"${item['price']:.2f} | "
+            f"{status}"
+        )
+
+
 def main():
     """Run the Grocery Store Checklist program."""
     groceries = [
@@ -32,7 +48,7 @@ def main():
     ]
 
     print("Welcome to the Grocery Store Checklist!")
-    print(f"There are currently {len(groceries)} items on your list.")
+    display_groceries(groceries)
 
 
 if __name__ == "__main__":
